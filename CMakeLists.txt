@@ -68,6 +68,10 @@ if(MSVC)
   add_definitions(-DHAVE_STDBOOL_H)
 endif()
 
+option(ENABLE_ENCODER "Enable Encoder" ON)
+
 add_subdirectory (libde265)
 add_subdirectory (dec265)
-add_subdirectory (enc265)
+if (ENABLE_ENCODER)
+  add_subdirectory (enc265)
+endif()
